@@ -40,8 +40,8 @@ function loadEpisodes() {
             card.innerHTML = `قسط ${i}<br><span style="color:#e11d48; font-size:12px;">لاک</span>`;
             card.onclick = () => {
                 currentPkg = pkg;
-                document.getElementById('payment-message').innerText = `قسط ${i} لاک ہے۔`;
-                document.getElementById('wa-btn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=السلام علیکم! مجھے ناول بازگشتِ عشق کا پیکیج ${pkg} خریدنا ہے۔`;
+                document.getElementById('payment-message').innerText = `قسط ${i} دیکھنے کے لیے رابطہ کریں۔`;
+                document.getElementById('wa-btn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=Code for Episode ${i}`;
                 document.getElementById('payment-modal').classList.add('active');
             };
         }
@@ -51,7 +51,7 @@ function loadEpisodes() {
 
 async function loadDriveContent(folderId, containerId) {
     const container = document.getElementById(containerId);
-    container.innerHTML = '<p style="text-align:center; padding:20px;">مواد لوڈ ہو رہا ہے...</p>';
+    container.innerHTML = '<p style="text-align:center; padding:20px;">لوڈ ہو رہا ہے...</p>';
     const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+trashed=false&key=${API_KEY}&fields=files(id,name,webViewLink)`;
     try {
         const res = await fetch(url);
@@ -62,10 +62,11 @@ async function loadDriveContent(folderId, containerId) {
             div.className = 'item-box';
             div.style.width = '100%';
             div.innerHTML = `📄 ${f.name}`;
+            // یہ فائل براہ راست ایپ میں کھولنے کے لیے
             div.onclick = () => window.open(f.webViewLink, '_blank');
             container.appendChild(div);
         });
-    } catch (e) { container.innerHTML = 'لوڈنگ میں غلطی ہوئی۔'; }
+    } catch (e) { container.innerHTML = 'لوڈنگ میں مسئلہ آیا۔'; }
 }
 
 async function openFileByName(num, folderId) {
@@ -74,7 +75,7 @@ async function openFileByName(num, folderId) {
         const res = await fetch(url);
         const data = await res.json();
         if (data.files && data.files.length > 0) {
-            // یہ لنک خود بخود موبائل پر گوگل ڈرائیو ایپ کو کھولنے کی کوشش کرے گا
+            // ڈرائیو ایپ ٹرگر لنک
             window.open(data.files[0].webViewLink, '_blank');
         } else { alert('فائل نہیں ملی۔'); }
     } catch (e) { alert('انٹرنیٹ چیک کریں۔'); }
