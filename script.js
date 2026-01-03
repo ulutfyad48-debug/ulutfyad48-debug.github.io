@@ -6,12 +6,21 @@ const FOLDERS = {
 
 const API_KEY = 'AIzaSyCMppjIJi2_xBi3oLVXN0XjdANMX10xmwE';
 
-window.onload = loadEpisodes;
+window.onload = () => {
+    const container = document.getElementById('episodes-container');
+    for (let i = 1; i <= 100; i++) {
+        const div = document.createElement('div');
+        div.className = 'item-box';
+        div.innerText = `قسط ${i}`;
+        div.onclick = () => openFile(i, FOLDERS.novel);
+        container.appendChild(div);
+    }
+};
 
-function showSection(section) {
+function showSection(id) {
     document.getElementById('home-screen').style.display = 'none';
     document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
-    document.getElementById(section + '-section').classList.add('active');
+    document.getElementById(id + '-section').classList.add('active');
 }
 
 function showHome() {
@@ -19,33 +28,20 @@ function showHome() {
     document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
 }
 
-function loadEpisodes() {
-    const container = document.getElementById('episodes-container');
-    container.innerHTML = '';
-    for (let i = 1; i <= 100; i++) {
-        const div = document.createElement('div');
-        div.className = 'item-box';
-        div.innerText = `قسط ${i}`;
-        div.onclick = () => openDriveFile(i, FOLDERS.novel);
-        container.appendChild(div);
-    }
-}
-
-async function openDriveFile(name, folderId) {
-    // about:blank سے بچنے کے لیے ہم پہلے لنک چیک کر رہے ہیں
+async function openFile(name, folderId) {
     const query = encodeURIComponent(`'${folderId}' in parents and name contains '${name}' and trashed=false`);
     const url = `https://www.googleapis.com/drive/v3/files?q=${query}&key=${API_KEY}&fields=files(id,webViewLink)`;
-
+    
     try {
         const res = await fetch(url);
         const data = await res.json();
         if (data.files && data.files.length > 0) {
-            // یہ لنک موبائل ایپ کو براہ راست ٹرگر کرتا ہے
-            window.location.href = data.files[0].webViewLink;
+            // یہ لنک گوگل ڈرائیو ایپ کو براہ راست کھولے گا
+            window.location.assign(data.files[0].webViewLink);
         } else {
-            alert("فائل نہیں ملی۔");
+            alert("فائل نہیں ملی۔ نام چیک کریں۔");
         }
     } catch (e) {
-        alert("انٹرنیٹ چیک کریں۔");
+        alert("انٹرنیٹ کا مسئلہ ہے۔");
     }
 }
