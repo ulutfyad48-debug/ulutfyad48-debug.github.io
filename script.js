@@ -1,8 +1,8 @@
 const FOLDERS = {
-    novel: '1PWDGvI9Pxkzma58-BDPZYAxq4Mhw1gdu',
-    poetry: '1Bje7U53wmDHhuUrAvj-NaHDAXAfMiG_h',
-    codewords: '1n8MuNqMaOe6eAntLDf-zTHXaNji3NEkn',
-    about: '1QHIFfbqFIcpzHKEwEzPlRovHrC4t7wkX'
+    novel: '1PWDGvI9Pxkzma58-BDPZYAxq4Mhw1gdu', // Google Drive Folder ID
+    poetry: '1Bje7U53wmDHhuUrAvj-NaHDAXAfMiG_h', // Google Drive Folder ID
+    codewords: '1n8MuNqMaOe6eAntLDf-zTHXaNji3NEkn', // Google Drive Folder ID
+    about: '1QHIFfbqFIcpzHKEwEzPlRovHrC4t7wkX' // Google Drive Folder ID
 };
 
 const API_KEY = 'AIzaSyCMppjIJi2_xBi3oLVXN0XjdANMX10xmwE';
@@ -18,7 +18,6 @@ function showSection(section) {
     document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
     document.getElementById(section + '-section').classList.add('active');
     
-    // Auto-load contents for categories
     if (section !== 'novels') {
         loadDriveContent(FOLDERS[section], section + '-container');
     }
@@ -44,7 +43,7 @@ function loadEpisodes() {
             card.innerHTML = `قسط ${i}<br><span style="color:#e11d48; font-size:11px;">لاک</span>`;
             card.onclick = () => {
                 currentPkg = pkg;
-                document.getElementById('payment-message').innerText = `قسط نمبر ${i} لاک ہے۔ کوڈ حاصل کرنے کے لیے بٹن دبائیں۔`;
+                document.getElementById('payment-message').innerText = `قسط نمبر ${i} لاک ہے۔ کوڈ حاصل کرنے کے لیے رابطہ کریں۔`;
                 document.getElementById('wa-btn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=السلام علیکم! مجھے ناول بازگشتِ عشق کا پیکیج ${pkg} خریدنا ہے۔`;
                 document.getElementById('payment-modal').classList.add('active');
             };
@@ -68,7 +67,7 @@ async function loadDriveContent(folderId, containerId) {
                 div.className = 'item-box';
                 div.style.width = '100%';
                 div.innerHTML = `📄 ${f.name}`;
-                // Opens directly in Drive App on mobile
+                // This opens directly in Drive App on mobile
                 div.onclick = () => window.open(f.webViewLink, '_blank');
                 container.appendChild(div);
             });
@@ -86,7 +85,7 @@ async function openFileByName(num, folderId) {
         const res = await fetch(url);
         const data = await res.json();
         if (data.files && data.files.length > 0) {
-            // This triggers the Google Drive app
+            // This triggers the Google Drive app directly
             window.open(data.files[0].webViewLink, '_blank');
         } else {
             alert('معذرت! فائل نہیں ملی۔ نام چیک کریں۔');
