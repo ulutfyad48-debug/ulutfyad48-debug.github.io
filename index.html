@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Novelistan | خودکار ادبی دنیا</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero-header">
+        <img src="https://drive.google.com/thumbnail?id=18SlPABsEdm_mndblVL9xHUwCARh6ye7x" class="main-cover">
+        <div class="hero-text">
+            <h1>ناولستان</h1>
+            <p>جہاں لفظ بولتے ہیں اور کہانیاں دلوں میں گھر کرتی ہیں</p>
+        </div>
+    </div>
+
+    <div class="main-categories">
+        <div class="cat-item" onclick="showTab('novels')">
+            <img src="https://drive.google.com/thumbnail?id=1A6cQPJd5qacANztlmKyU6a5xiKgNAUuz">
+            <h3>ناولز</h3>
+        </div>
+        <div class="cat-item" onclick="showTab('poetry')">
+            <img src="https://drive.google.com/thumbnail?id=1jeO58Sf8-w5fx5SPQZG8LqJjm7QfPHTe">
+            <h3>شاعری</h3>
+        </div>
+        <div class="cat-item" onclick="showTab('codes')">
+            <img src="https://drive.google.com/thumbnail?id=11c5Imzwd7sOJ_yEL6gvgDQy85WW0Mvsi">
+            <h3>کوڈ ورڈز</h3>
+        </div>
+        <div class="cat-item" onclick="showTab('author')">
+            <img src="https://drive.google.com/thumbnail?id=1bAfC0S2euvxZQKuawj_nVQGOiK9S41N7">
+            <h3>مصنف</h3>
+        </div>
+    </div>
+
+    <div id="content-display">
+        <section id="novels" class="tab active">
+            <h2>بازگشتِ عشق</h2>
+            <div id="episodes-container" class="grid-layout"></div>
+        </section>
+        <section id="poetry" class="tab">
+            <h2>لا محدود شاعری</h2>
+            <div id="poetry-container" class="list-layout"></div>
+        </section>
+    </div>
+
+    <div id="lockModal" class="modal">
+        <div class="modal-box">
+            <h3 id="modalTitle">قسط مقفل ہے</h3>
+            <p id="priceDetail"></p>
+            <div class="wa-buttons">
+                <a id="wa1" href="#" class="wa-btn">رابطہ 1</a>
+                <a id="wa2" href="#" class="wa-btn">رابطہ 2</a>
+            </div>
+            <input type="text" id="keyIn" placeholder="کوڈ درج کریں">
+            <button onclick="checkKey()">اوپن کریں</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
