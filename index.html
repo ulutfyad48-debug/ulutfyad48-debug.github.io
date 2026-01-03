@@ -3,34 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ناولستان - پریمیم</title>
+    <title>ناولستان - پریمیم ایڈیشن</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #020617; --card: #1e293b; --accent: #e11d48; --text: #f8fafc; --gold: #fbbf24; }
+        :root { --bg: #020617; --card: #1e293b; --accent: #e11d48; --text: #f8fafc; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: var(--text); }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; }
         
-        /* ہیڈر ڈیزائن */
-        .header { text-align: center; padding: 40px 10px; background: linear-gradient(135deg, #1e293b 0%, #020617 100%); border-bottom: 4px solid var(--accent); border-radius: 0 0 30px 30px; margin-bottom: 25px; }
-        .header h1 { font-size: 3.5rem; color: #fff; text-shadow: 0 4px 15px rgba(225, 29, 72, 0.4); }
+        .header { text-align: center; padding: 40px 10px; background: linear-gradient(135deg, #1e293b 0%, #020617 100%); border-bottom: 4px solid var(--accent); border-radius: 0 0 30px 30px; margin-bottom: 30px; }
+        .header h1 { font-size: 3rem; color: #fff; }
 
-        /* مینو بٹن */
-        .menu-grid { display: grid; gap: 15px; }
-        .nav-btn { background: var(--card); padding: 22px; border-radius: 15px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
-        .nav-btn:hover { background: #2d3e54; border-color: var(--accent); }
+        .nav-btn { background: var(--card); padding: 25px; border-radius: 15px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; cursor: pointer; margin-bottom: 20px; }
 
-        /* اقساط کی لسٹ */
-        .ep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .ep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .ep-card { background: white; color: #0f172a; padding: 20px 10px; border-radius: 12px; text-align: center; font-weight: bold; cursor: pointer; border-bottom: 4px solid #cbd5e1; position: relative; }
-        .ep-card.locked { background: #cbd5e1; color: #64748b; border-bottom-color: #94a3b8; }
-        .status-label { font-size: 11px; display: block; margin-top: 5px; font-family: sans-serif; }
+        .ep-card.locked { background: #cbd5e1; color: #64748b; }
+        .status { font-size: 11px; display: block; margin-top: 5px; }
 
-        /* پاپ اپ (Modals) */
+        /* پاپ اپ ڈیزائن */
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
         .modal.active { display: flex; }
-        .modal-content { background: white; color: #1e293b; padding: 30px; border-radius: 20px; width: 100%; text-align: center; box-shadow: 0 0 20px rgba(225, 29, 72, 0.3); }
-        .btn-wa { background: #22c55e; color: white; text-decoration: none; padding: 14px; display: block; border-radius: 10px; margin: 15px 0; font-weight: bold; font-size: 1.1rem; }
+        .modal-content { background: white; color: #1e293b; padding: 30px; border-radius: 20px; width: 100%; text-align: center; }
+        .btn-wa { background: #22c55e; color: white; text-decoration: none; padding: 14px; display: block; border-radius: 10px; margin: 15px 0; font-weight: bold; }
         .btn-back { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; margin-bottom: 20px; cursor: pointer; font-weight: bold; }
         input { width: 100%; padding: 15px; margin: 15px 0; border: 2px solid #ddd; border-radius: 10px; text-align: center; font-size: 1.2rem; }
     </style>
@@ -40,35 +35,35 @@
     <div id="home-screen" class="container">
         <header class="header">
             <h1>ناولستان</h1>
-            <p>بازگشتِ عشق - مکمل ڈیجیٹل ایڈیشن</p>
+            <p>بازگشتِ عشق - پریمیم پورٹل</p>
         </header>
-        <div class="menu-grid">
-            <div class="nav-btn" onclick="showNovels()"><h3>📖 ناول کی تمام اقساط</h3><span>➔</span></div>
-            <div class="nav-btn" onclick="alert('شاعری کا حصہ جلد اپ ڈیٹ ہوگا')"><h3>📜 اردو شاعری</h3><span>➔</span></div>
+        <div class="nav-btn" onclick="showNovels()">
+            <h3>📖 ناول کی اقساط (1-100)</h3>
+            <span>➔</span>
         </div>
     </div>
 
     <div id="novel-screen" class="container" style="display:none;">
-        <button class="btn-back" onclick="goHome()">🏠 ہوم پیج پر واپس جائیں</button>
-        <h2 style="text-align:center; margin-bottom:20px; color:var(--accent);">اقساط (Episodes)</h2>
+        <button class="btn-back" onclick="location.reload()">🏠 ہوم پیج</button>
         <div id="episodes-list" class="ep-grid"></div>
     </div>
 
     <div id="pay-modal" class="modal">
         <div class="modal-content">
-            <h2 style="color:var(--accent)">🔒 یہ پیکیج لاک ہے</h2>
-            <p id="pay-info" style="margin:20px 0; font-weight:bold; font-family:sans-serif;"></p>
-            <a id="wa-link" href="#" class="btn-wa" target="_blank">واٹس ایپ سے رابطہ کریں</a>
-            <button onclick="showCodeInput()" style="width:100%; padding:10px; background:none; border:1px solid #ccc; border-radius:8px; cursor:pointer;">میرے پاس کوڈ ہے</button>
-            <p onclick="closeModals()" style="margin-top:20px; cursor:pointer; color:#666;">بند کریں</p>
+            <h2 style="color:var(--accent)">🔒 قسط لاک ہے</h2>
+            <p id="pay-info" style="margin:20px 0; font-family:sans-serif; font-weight:bold;"></p>
+            <a id="wa-link" href="#" class="btn-wa" target="_blank">واٹس ایپ سے خریدیں</a>
+            <button onclick="showCodeInput()" style="width:100%; padding:10px; background:none; border:1px solid #ccc; border-radius:8px;">میرے پاس کوڈ ہے</button>
+            <p onclick="closeModals()" style="margin-top:20px; cursor:pointer;">بند کریں</p>
         </div>
     </div>
 
     <div id="code-modal" class="modal">
         <div class="modal-content">
-            <h3>🔑 ان لاک کوڈ درج کریں</h3>
+            <h3>🔑 ڈیلی ان لاک کوڈ درج کریں</h3>
+            <p style="font-size: 12px; color: #666;">یہ کوڈ صرف آج کے لیے کارآمد ہے</p>
             <input type="text" id="user-code" placeholder="XXXXXX">
-            <button class="btn-wa" style="border:none; width:100%;" onclick="verifyPackage()">تصدیق کریں</button>
+            <button class="btn-wa" style="border:none; width:100%;" onclick="verifyAccess()">تصدیق کریں</button>
             <button onclick="closeModals()" style="border:none; background:none; cursor:pointer;">کینسل</button>
         </div>
     </div>
