@@ -268,6 +268,48 @@
         .close-btn:hover {
             color: var(--accent2);
         }
+        
+        .novel-list-card {
+            background: linear-gradient(135deg, #2a2f4a 0%, #1a1f3a 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid #3a3f5a;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .novel-list-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .novel-list-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,10,84,0.4);
+            border-color: var(--accent);
+        }
+        .novel-list-card:hover::before {
+            opacity: 0.15;
+        }
+        .novel-list-card h3 {
+            font-size: 2rem;
+            color: var(--accent2);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+        .novel-list-card p {
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -300,8 +342,14 @@
         </div>
     </div>
 
-    <div id="content-screen" class="container" style="display:none;">
+    <div id="novel-list-screen" class="container" style="display:none;">
         <button class="btn-back" onclick="location.reload()">🏠 ہوم پیج</button>
+        <h2 style="text-align:center; margin-bottom:20px; color:var(--accent);">📚 ناول منتخب کریں</h2>
+        <div id="novels-container"></div>
+    </div>
+
+    <div id="content-screen" class="container" style="display:none;">
+        <button class="btn-back" onclick="goBack()">⬅️ واپس</button>
         <h2 id="section-title" style="text-align:center; margin-bottom:20px; color:var(--accent);"></h2>
         <div id="items-list" class="items-grid"></div>
     </div>
