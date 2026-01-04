@@ -6,41 +6,297 @@
     <title>ناولستان - پریمیم پورٹل</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #020617; --card: #1e293b; --accent: #e11d48; --text: #f8fafc; }
+        :root { 
+            --bg: #0a0e27; 
+            --card: #1a1f3a; 
+            --accent: #ff0a54; 
+            --accent2: #00d9ff;
+            --text: #ffffff; 
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Nastaliq Urdu', serif; background: var(--bg); color: var(--text); }
+        body { 
+            font-family: 'Noto Nastaliq Urdu', serif; 
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
         .container { max-width: 500px; margin: 0 auto; padding: 20px; }
         
-        .header { text-align: center; padding: 40px 10px; background: linear-gradient(135deg, #1e293b 0%, #020617 100%); border-bottom: 4px solid var(--accent); border-radius: 0 0 30px 30px; margin-bottom: 30px; }
-        .header h1 { font-size: 3rem; color: #fff; }
+        .header { 
+            text-align: center; 
+            padding: 0;
+            background: linear-gradient(135deg, rgba(255,10,84,0.2) 0%, rgba(0,217,255,0.2) 100%);
+            border-bottom: 3px solid var(--accent); 
+            border-radius: 0 0 30px 30px; 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(255,10,84,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        .header-cover {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .header-content {
+            padding: 30px 10px;
+            background: linear-gradient(to bottom, transparent 0%, rgba(10,14,39,0.8) 100%);
+            position: relative;
+            margin-top: -80px;
+        }
+        .header h1 { 
+            font-size: 3.5rem; 
+            color: #fff; 
+            cursor: pointer;
+            text-shadow: 0 0 20px rgba(255,10,84,0.8);
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: var(--accent2);
+            font-size: 1.1rem;
+        }
 
-        .menu-grid { display: grid; gap: 15px; }
-        .nav-btn { background: var(--card); padding: 22px; border-radius: 15px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.3s; }
+        .menu-grid { display: grid; gap: 20px; }
+        .nav-btn { 
+            background: var(--card);
+            padding: 0;
+            border-radius: 20px; 
+            border: 2px solid transparent;
+            cursor: pointer; 
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            opacity: 0;
+            transition: 0.4s;
+        }
+        .nav-btn:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255,10,84,0.4);
+        }
+        .nav-btn:hover::before {
+            opacity: 0.1;
+        }
+        .nav-btn img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        .nav-btn h3 {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
 
-        .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
-        .card { background: white; color: #0f172a; padding: 20px 10px; border-radius: 12px; text-align: center; font-weight: bold; cursor: pointer; border-bottom: 4px solid #cbd5e1; }
-        .card.locked { background: #cbd5e1; color: #64748b; }
+        .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .card { 
+            background: linear-gradient(135deg, #2a2f4a 0%, #1a1f3a 100%);
+            color: var(--text);
+            padding: 20px 10px; 
+            border-radius: 15px; 
+            text-align: center; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border: 2px solid #3a3f5a;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .card:hover::before {
+            opacity: 0.2;
+        }
+        .card span {
+            position: relative;
+            z-index: 1;
+        }
+        .card.locked { 
+            background: linear-gradient(135deg, #2a2f4a 0%, #1a1f3a 100%);
+            opacity: 0.6;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255,10,84,0.3);
+            border-color: var(--accent);
+        }
 
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+        .modal { 
+            display: none; 
+            position: fixed; 
+            inset: 0; 
+            background: rgba(0,0,0,0.95); 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 1000; 
+            padding: 20px; 
+        }
         .modal.active { display: flex; }
-        .modal-box { background: white; color: #1e293b; padding: 30px; border-radius: 20px; width: 100%; text-align: center; }
-        .btn-wa { background: #22c55e; color: white; text-decoration: none; padding: 14px; display: block; border-radius: 10px; margin: 15px 0; font-weight: bold; }
-        .btn-back { background: var(--accent); color: white; border: none; padding: 12px; width: 100%; border-radius: 10px; margin-bottom: 20px; cursor: pointer; font-weight: bold; }
-        input { width: 100%; padding: 15px; margin: 15px 0; border: 2px solid #ddd; border-radius: 10px; text-align: center; font-size: 1.2rem; }
+        .modal-box { 
+            background: linear-gradient(135deg, #1a1f3a 0%, #2a2f4a 100%);
+            color: var(--text);
+            padding: 35px; 
+            border-radius: 25px; 
+            width: 100%; 
+            max-width: 400px; 
+            text-align: center;
+            border: 2px solid var(--accent);
+            box-shadow: 0 20px 60px rgba(255,10,84,0.5);
+        }
+        .modal-box h2 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+        
+        .wa-container { display: flex; gap: 10px; margin: 20px 0; }
+        .btn-wa { 
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white; 
+            text-decoration: none; 
+            padding: 15px; 
+            display: block; 
+            border-radius: 12px; 
+            font-weight: bold; 
+            flex: 1; 
+            text-align: center;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .btn-wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34,197,94,0.4);
+            border-color: #dcfce7;
+        }
+        
+        .btn-back { 
+            background: linear-gradient(135deg, var(--accent) 0%, #c70039 100%);
+            color: white; 
+            border: none; 
+            padding: 14px; 
+            width: 100%; 
+            border-radius: 12px; 
+            margin-bottom: 20px; 
+            cursor: pointer; 
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-back:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,10,84,0.4);
+        }
+        
+        input { 
+            width: 100%; 
+            padding: 16px; 
+            margin: 15px 0; 
+            border: 2px solid #3a3f5a;
+            background: #0a0e27;
+            color: var(--text);
+            border-radius: 12px; 
+            text-align: center; 
+            font-size: 1.3rem;
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+        input:focus {
+            outline: none;
+            border-color: var(--accent2);
+            box-shadow: 0 0 15px rgba(0,217,255,0.3);
+        }
+        
+        .btn-code {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--accent2);
+            color: var(--accent2);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+        .btn-code:hover {
+            background: var(--accent2);
+            color: #0a0e27;
+        }
+        
+        .btn-verify {
+            background: linear-gradient(135deg, var(--accent2) 0%, #0284c7 100%);
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+        .btn-verify:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,217,255,0.4);
+        }
+        
+        .close-btn {
+            margin-top: 20px;
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close-btn:hover {
+            color: var(--accent2);
+        }
     </style>
 </head>
 <body>
 
     <div id="home-screen" class="container">
         <header class="header">
-            <h1>ناولستان</h1>
-            <p>تمام سیکشنز - آٹو اپ ڈیٹ</p>
+            <img src="https://drive.google.com/thumbnail?id=18SlPABsEdm_mndblVL9xHUwCARh6ye7x&sz=w800" alt="Novelistan Cover" class="header-cover">
+            <div class="header-content">
+                <h1 onclick="location.reload()">ناولستان</h1>
+                <p>✨ تمام سیکشنز - آٹو اپ ڈیٹ ✨</p>
+            </div>
         </header>
         <div class="menu-grid">
-            <div class="nav-btn" onclick="openSection('novel')"><h3>📖 ناول پڑھیں</h3><span>➔</span></div>
-            <div class="nav-btn" onclick="openSection('poetry')"><h3>📜 اردو شاعری</h3><span>➔</span></div>
-            <div class="nav-btn" onclick="openSection('codewords')"><h3>🔐 کوڈ ورڈز</h3><span>➔</span></div>
-            <div class="nav-btn" onclick="openSection('about')"><h3>👤 مصنف</h3><span>➔</span></div>
+            <div class="nav-btn" onclick="openSection('novel')">
+                <img src="https://drive.google.com/thumbnail?id=1A6cQPJd5qacANztlmKyU6a5xiKgNAUuz&sz=w500" alt="Novel">
+                <h3>📖 ناول پڑھیں</h3>
+            </div>
+            <div class="nav-btn" onclick="openSection('poetry')">
+                <img src="https://drive.google.com/thumbnail?id=1jeO58Sf8-w5fx5SPQZG8LqJjm7QfPHTe&sz=w500" alt="Poetry">
+                <h3>📜 اردو شاعری</h3>
+            </div>
+            <div class="nav-btn" onclick="openSection('codewords')">
+                <img src="https://drive.google.com/thumbnail?id=11c5Imzwd7sOJ_yEL6gvgDQy85WW0Mvsi&sz=w500" alt="Codewords">
+                <h3>🔐 کوڈ ورڈز</h3>
+            </div>
+            <div class="nav-btn" onclick="openSection('about')">
+                <img src="https://drive.google.com/thumbnail?id=1bAfC0S2euvxZQKuawj_nVQGOiK9S41N7&sz=w500" alt="About">
+                <h3>👤 مصنف</h3>
+            </div>
         </div>
     </div>
 
@@ -52,20 +308,25 @@
 
     <div id="pay-modal" class="modal">
         <div class="modal-box">
-            <h2 style="color:var(--accent)">🔒 لاک</h2>
-            <p id="pay-info" style="margin:20px 0; font-weight:bold;"></p>
-            <a id="wa-link" href="#" class="btn-wa" target="_blank">واٹس ایپ رابطہ</a>
-            <button onclick="showCodeInput()" style="width:100%; padding:10px; background:none; border:1px solid #ccc; border-radius:8px;">میرے پاس کوڈ ہے</button>
-            <p onclick="closeModals()" style="margin-top:20px; cursor:pointer;">بند کریں</p>
+            <h2>🔒 لاک</h2>
+            <p id="pay-info" style="margin:20px 0; font-weight:bold; font-size:1.1rem;"></p>
+            <p style="margin: 10px 0; font-size: 0.95rem; color: var(--accent2);">💬 دونوں میں سے کسی ایک نمبر پر رابطہ کریں:</p>
+            <div class="wa-container">
+                <a id="wa-link-1" href="#" class="btn-wa" target="_blank">📱 واٹس ایپ 1</a>
+                <a id="wa-link-2" href="#" class="btn-wa" target="_blank">📱 واٹس ایپ 2</a>
+            </div>
+            <button onclick="showCodeInput()" class="btn-code">🔑 میرے پاس کوڈ ہے</button>
+            <p onclick="closeModals()" class="close-btn">❌ بند کریں</p>
         </div>
     </div>
 
     <div id="code-modal" class="modal">
         <div class="modal-box">
-            <h3>🔑 آج کا کوڈ درج کریں</h3>
+            <h2>🔑 کوڈ درج کریں</h2>
+            <p style="margin-bottom: 15px; color: var(--accent2);">آج کا کوڈ یہاں لکھیں</p>
             <input type="text" id="user-code" placeholder="XXXXXX">
-            <button class="btn-wa" style="border:none; width:100%;" onclick="checkAccess()">تصدیق کریں</button>
-            <button onclick="closeModals()" style="border:none; background:none; cursor:pointer;">کینسل</button>
+            <button class="btn-verify" onclick="checkAccess()">✅ تصدیق کریں</button>
+            <p onclick="closeModals()" class="close-btn">❌ کینسل</p>
         </div>
     </div>
 
