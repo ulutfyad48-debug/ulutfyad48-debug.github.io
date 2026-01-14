@@ -302,11 +302,27 @@
 
         async function openFile(name, fId) {
             try {
-                const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${fId}'+in+parents+and+name+contains+'${name}'+and+trashed=false&key=${API_KEY}&fields=files(webViewLink)`);
-                const data = await res.json();
-                if(data.files.length) window.open(data.files[0].webViewLink, '_blank');
-                else alert("فائل دستیاب نہیں!");
-            } catch(e) { alert("ایرر!"); }
+                // exact match کے لیے - پہلے .pdf extension کے ساتھ
+                const query1 = `'${fId}' in parents and name='${name}.pdf' and trashed=false`;
+                let res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query1)}&key=${API_KEY}&fields=files(webViewLink)`);
+                let data = await res.json();
+                
+                // اگر .pdf نہیں ملا تو بغیر extension
+                if(!data.files || data.files.length === 0) {
+                    const query2 = `'${fId}' in parents and name='${name}' and trashed=false`;
+                    res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query2)}&key=${API_KEY}&fields=files(webViewLink)`);
+                    data = await res.json();
+                }
+                
+                if(data.files && data.files.length > 0) {
+                    window.open(data.files[0].webViewLink, '_blank');
+                } else {
+                    alert("فائل دستیاب نہیں!");
+                }
+            } catch(e) { 
+                console.error(e);
+                alert("ایرر!"); 
+            }
         }
 
         function showCodeInput() { closeModals(); document.getElementById('code-modal').classList.add('active'); }
