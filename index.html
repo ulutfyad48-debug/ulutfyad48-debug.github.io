@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-    <script src="https://pl28592355.effectivegatecpm.com/b4/80/77/b48077d15893279ce3505db67539d01d.js"></script>
+    <script src="https://pl28592628.effectivegatecpm.com/76/40/cd/7640cd213b7ae5aad895680d4c4ecfba.js"></script>
 
     <script>
     if ('serviceWorker' in navigator) {
@@ -31,12 +31,7 @@
     </script>
 
     <title>ناولستان | بہترین اردو ناول، اقساط اور شاعری</title>
-    <meta name="description" content="ناولستان پر پڑھیں بہترین اردو ناول، مکمل اقساط، نئی کہانیاں اور اعلیٰ اردو شاعری۔ مفت اور پریمیم مواد دستیاب۔">
-    <meta name="keywords" content="اردو ناول, اردو کہانیاں, اردو شاعری, اردو افسانہ, ناولستان">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Language" content="ur">
-    <link rel="canonical" href="https://ulutfyad48-debug.github.io/">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -56,7 +51,7 @@
         }
         .container { max-width: 500px; margin: 0 auto; padding: 15px; }
 
-        /* Header Styles */
+        /* Header */
         .header { 
             text-align: center; border-bottom: 3px solid var(--accent); 
             border-radius: 0 0 30px 30px; margin-bottom: 25px;
@@ -67,23 +62,8 @@
         .header-content { padding: 20px 10px; background: linear-gradient(to bottom, transparent, rgba(5,8,22,0.9)); margin-top: -60px; position: relative; }
         .header h1 { font-size: 2.8rem; text-shadow: 0 0 20px rgba(255,10,84,0.5); cursor: pointer; }
 
-        /* Notification Slider */
-        .notif-section { margin-bottom: 25px; }
-        .notif-title { font-size: 0.95rem; color: var(--accent2); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-weight: bold; }
-        .notif-slider { 
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-            gap: 15px; padding: 5px 0 15px 0; scrollbar-width: none;
-        }
-        .notif-slider::-webkit-scrollbar { display: none; }
-        .notif-card { 
-            min-width: 100%; scroll-snap-align: center;
-            background: var(--card); border-radius: 20px; overflow: hidden;
-            border: 2px solid var(--accent); 
-            box-shadow: 0 0 15px rgba(255,10,84,0.2);
-            aspect-ratio: 16/9; position: relative;
-        }
-        .notif-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .img-loader { position: absolute; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; z-index: -1; }
+        /* Ad Container Style */
+        .ad-slot { text-align: center; margin: 20px 0; min-height: 50px; background: rgba(255,255,255,0.02); border-radius: 10px; }
 
         /* Navigation Grid */
         .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
@@ -95,53 +75,21 @@
         .nav-btn:active { transform: scale(0.95); }
         .nav-btn img { width: 100%; height: 120px; object-fit: cover; filter: brightness(0.9); }
         .nav-btn h3 { padding: 12px; text-align: center; font-size: 1.1rem; }
-
-        /* Items Grid */
+        
+        /* Buttons & Cards */
+        .card { background: var(--card); padding: 18px 10px; border-radius: 15px; text-align: center; border: 1px solid #3a3f5a; cursor: pointer; transition: 0.2s; }
+        .btn-back { background: var(--accent); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; margin-bottom: 20px; cursor: pointer; font-weight: bold; }
         .items-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .card { 
-            background: var(--card); padding: 18px 10px; border-radius: 15px; 
-            text-align: center; border: 1px solid #3a3f5a; cursor: pointer;
-            transition: 0.2s;
-        }
-        .card.locked { border-style: dashed; border-color: var(--accent); opacity: 0.8; }
-        .btn-back { background: var(--accent); color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; margin-bottom: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
-
-        /* Novel Selection */
-        .novel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .novel-card { 
-            background: var(--card); border-radius: 15px; padding: 20px; 
-            text-align: center; cursor: pointer; border: 2px solid var(--glass);
-            transition: 0.3s;
-        }
-        .novel-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .novel-card h3 { font-size: 1.3rem; margin-bottom: 5px; }
-
-        /* Payment Modal */
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
-        .modal.active { display: flex; }
-        .modal-box { background: #1a1f3a; padding: 25px; border-radius: 25px; width: 100%; max-width: 380px; text-align: center; border: 2px solid var(--accent); }
-        .ep-table { background: #000; padding: 12px; border-radius: 15px; margin: 15px 0; border: 1px solid var(--accent2); }
-        .ep-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #111; font-size: 0.85rem; }
-        
-        .wa-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
-        .btn-wa { background: #16a34a; color: #fff; text-decoration: none; padding: 12px; border-radius: 12px; font-size: 0.85rem; font-weight: bold; }
-        
-        input { width: 100%; padding: 15px; margin: 10px 0; background: #000; color: #fff; border: 1px solid var(--accent2); border-radius: 12px; text-align: center; font-size: 1.2rem; }
-        .btn-main { background: var(--accent2); color: black; border: none; padding: 15px; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div id="home-screen" class="container">
-        <ins class="adsbygoogle"
-             style="display:block; margin:10px 0;"
-             data-ad-client="ca-pub-1417987183063486"
-             data-ad-slot="2358676150"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+        
+        <div class="ad-slot">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1417987183063486" data-ad-slot="2358676150" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <header class="header">
             <img src="https://drive.google.com/thumbnail?id=18SlPABsEdm_mndblVL9xHUwCARh6ye7x&sz=w800" class="header-cover">
@@ -151,11 +99,9 @@
             </div>
         </header>
 
-        <div class="notif-section">
-            <div class="notif-title"><span>🔔</span> نئی اپڈیٹس (سلائیڈ کریں)</div>
-            <div id="notif-slider" class="notif-slider">
-                <div class="notif-card"><div class="img-loader">لوڈ ہو رہا ہے...</div></div>
-            </div>
+        <div class="ad-slot">
+            <p style="font-size: 10px; color: #555; margin-bottom: 5px;">ADVERTISEMENT</p>
+            <div id="container-7640cd213b7ae5aad895680d4c4ecfba"></div>
         </div>
 
         <div class="menu-grid">
@@ -181,212 +127,69 @@
     <div id="novel-select-screen" class="container" style="display:none;">
         <button class="btn-back" onclick="goHome()">🏠 ہوم پیج</button>
         <h2 style="text-align:center; margin-bottom:20px;">📖 ناول منتخب کریں</h2>
-        <div class="novel-grid">
-            <div class="novel-card" onclick="openNovel('baz_ishq')">
-                <h3>🌹 باز عشق</h3>
-                <p style="font-size:0.85rem; opacity:0.8;">100 اقساط</p>
-            </div>
-            <div class="novel-card" onclick="openNovel('wo_jo_nazr_andaz')">
-                <h3>👁️ وہ جو نظر انداز بو گئے</h3>
-                <p style="font-size:0.85rem; opacity:0.8;">نیا ناول</p>
-            </div>
+        <div class="novel-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <div class="card" onclick="openNovel('baz_ishq')"><h3>🌹 باز عشق</h3></div>
+            <div class="card" onclick="openNovel('wo_jo_nazr_andaz')"><h3>👁️ وہ جو نظر انداز</h3></div>
         </div>
     </div>
 
     <div id="content-screen" class="container" style="display:none;">
         <button class="btn-back" onclick="backToNovelSelect()">⬅️ واپس</button>
-        <h2 id="section-title" style="text-align:center; margin-bottom:20px;"></h2>
         <div id="items-list" class="items-grid"></div>
     </div>
 
     <div id="other-content-screen" class="container" style="display:none;">
         <button class="btn-back" onclick="goHome()">🏠 ہوم پیج</button>
-        <h2 id="other-section-title" style="text-align:center; margin-bottom:20px;"></h2>
         <div id="other-items-list" class="items-grid"></div>
     </div>
 
-    <div id="pay-modal" class="modal">
-        <div class="modal-box">
-            <h2 style="color:var(--accent)">🔒 ادائیگی کا طریقہ</h2>
-            <div class="ep-table">
-                <div class="ep-row"><span>ایزی پیسہ 1:</span> <span style="color:var(--accent2)">03159226260</span></div>
-                <div class="ep-row"><span>ایزی پیسہ 2:</span> <span style="color:var(--accent2)">03359079528</span></div>
-            </div>
-            <p id="pay-info" style="font-size: 0.85rem; margin-bottom: 10px;"></p>
-            <div class="wa-btns">
-                <a id="wa-1" href="#" class="btn-wa">واٹس ایپ 1</a>
-                <a id="wa-2" href="#" class="btn-wa">واٹس ایپ 2</a>
-            </div>
-            <button class="btn-main" onclick="showCodeInput()">🔑 کوڈ درج کریں</button>
-            <p onclick="closeModals()" style="margin-top:20px; cursor:pointer; color:var(--accent);">❌ بند کریں</p>
-        </div>
+    <div class="ad-slot">
+        <div id="container-7640cd213b7ae5aad895680d4c4ecfba"></div>
     </div>
 
-    <div id="code-modal" class="modal">
-        <div class="modal-box">
-            <h2>🔑 کوڈ درج کریں</h2>
-            <input type="text" id="user-code" placeholder="XXXXXX">
-            <button class="btn-main" style="background:var(--accent2)" onclick="verifyCode()">✅ تصدیق کریں</button>
-            <p onclick="closeModals()" style="margin-top:15px; cursor:pointer;">❌ کینسل</p>
-        </div>
-    </div>
-
-    <div style="text-align: center; padding: 20px; margin-top: 30px; border-top: 1px solid #3a3f5a;">
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 0.8rem;">
-            <a href="privacy-policy.html" style="color: #00d9ff; text-decoration: none;">🔒 پرائیویسی پالیسی</a>
-            <a href="about-us.html" style="color: #00d9ff; text-decoration: none;">👥 ہمارے بارے میں</a>
-            <a href="contact-us.html" style="color: #00d9ff; text-decoration: none;">📞 رابطہ کریں</a>
-            <a href="terms-conditions.html" style="color: #00d9ff; text-decoration: none;">📜 شرائط و ضوابط</a>
-            <a href="disclaimer.html" style="color: #00d9ff; text-decoration: none;">⚠️ دستبرداری</a>
-        </div>
-        <p style="margin-top: 15px; opacity: 0.6; font-size: 0.7rem;">
-            © 2025 ناولستان | تمام حقوق محفوظ ہیں
-        </p>
+    <div style="text-align: center; padding: 20px; opacity: 0.6; font-size: 0.8rem;">
+        © 2025 ناولستان | تمام حقوق محفوظ ہیں
     </div>
 
     <script>
         const API_KEY = 'AIzaSyCMppjIJi2_xBi3oLVXN0XjdANMX10xmwE';
-        const NOTIF_FOLDER = '1n7L8XI9FUWOChsGO9lMYORPFAehvKLLI';
-        const WA_NUMBERS = ['923159226260', '923125540048'];
-        const FOLDERS = {
-            poetry: '1Bje7U53wmDHhuUrAvj-NaHDAXAfMiG_h',
-            about: '1QHIFfbqFIcpzHKEwEzPlRovHrC4t7wkX',
-            baz_ishq: '1AnTGqNqtKQxRHKRXZaGxVy4H7EtlfQjI',
-            wo_jo_nazr_andaz: '1kY-qWR-RvpdX8jPvJ-1j-OTgi6IUTgbz'
-        };
-
-        let unlocked = JSON.parse(localStorage.getItem('nov_unlocked')) || [];
-        let currentPkg = "";
-        let currentNovel = "";
-        let currentEpisode = 0;
-
-        window.onload = function() { loadNotifications(); };
-
-        async function loadNotifications() {
-            const slider = document.getElementById('notif-slider');
-            try {
-                const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${NOTIF_FOLDER}'+in+parents+and+trashed=false&orderBy=createdTime+desc&pageSize=20&key=${API_KEY}&fields=files(id)`);
-                const data = await res.json();
-                if(data.files && data.files.length > 0) {
-                    slider.innerHTML = data.files.map(f => `
-                        <div class="notif-card">
-                            <div class="img-loader">لوڈ ہو رہا ہے...</div>
-                            <img src="https://drive.google.com/thumbnail?id=${f.id}&sz=w1000" loading="lazy" onerror="this.parentElement.style.display='none'">
-                        </div>
-                    `).join('');
-                } else { slider.innerHTML = "<p>کوئی نیا نوٹیفیکیشن نہیں ہے۔</p>"; }
-            } catch (e) { slider.innerHTML = "<p>کنکشن کا مسئلہ۔</p>"; }
-        }
+        const FOLDERS = { poetry: '1Bje7U53wmDHhuUrAvj-NaHDAXAfMiG_h', about: '1QHIFfbqFIcpzHKEwEzPlRovHrC4t7wkX', baz_ishq: '1AnTGqNqtKQxRHKRXZaGxVy4H7EtlfQjI', wo_jo_nazr_andaz: '1kY-qWR-RvpdX8jPvJ-1j-OTgi6IUTgbz' };
 
         function openSection(mode) {
-            if(mode === 'novel') {
-                document.getElementById('home-screen').style.display = 'none';
-                document.getElementById('novel-select-screen').style.display = 'block';
-            } else {
-                document.getElementById('home-screen').style.display = 'none';
-                document.getElementById('other-content-screen').style.display = 'block';
-                document.getElementById('other-section-title').innerText = mode === 'poetry' ? "📜 اردو شاعری" : "👤 مصنف کے بارے میں";
-                loadOtherFiles(mode);
-            }
-        }
-
-        function openNovel(novelId) {
-            currentNovel = novelId;
-            document.getElementById('novel-select-screen').style.display = 'none';
-            document.getElementById('content-screen').style.display = 'block';
-            document.getElementById('section-title').innerText = novelId === 'baz_ishq' ? "🌹 باز عشق - اقساط" : "👁️ وہ جو نظر انداز بو گئے";
-            renderNovels(novelId);
-        }
-
-        function backToNovelSelect() {
-            document.getElementById('content-screen').style.display = 'none';
-            document.getElementById('novel-select-screen').style.display = 'block';
+            document.getElementById('home-screen').style.display = 'none';
+            if(mode === 'novel') { document.getElementById('novel-select-screen').style.display = 'block'; }
+            else { document.getElementById('other-content-screen').style.display = 'block'; loadFiles(mode); }
         }
 
         function goHome() { location.reload(); }
 
-        async function loadOtherFiles(mode) {
+        async function loadFiles(mode) {
             const list = document.getElementById('other-items-list');
-            list.innerHTML = "⏳ لوڈ ہو رہا ہے...";
-            try {
-                const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${FOLDERS[mode]}'+in+parents+and+trashed=false&key=${API_KEY}&fields=files(id,name,webViewLink)`);
-                const data = await res.json();
-                list.innerHTML = data.files.map(f => `
-                    <div class="card" onclick="window.open('${f.webViewLink}', '_blank')">
-                        ${f.name.split('.')[0]}
-                    </div>
-                `).join('');
-            } catch (e) { list.innerHTML = "⚠️ نیٹ ورک ایرر"; }
+            list.innerHTML = "لوڈ ہو رہا ہے...";
+            const res = await fetch(`https://www.googleapis.com/drive/v3/files?q='${FOLDERS[mode]}'+in+parents&key=${API_KEY}`);
+            const data = await res.json();
+            list.innerHTML = data.files.map(f => `<div class="card" onclick="window.open('https://drive.google.com/file/d/${f.id}/view', '_blank')">${f.name}</div>`).join('');
         }
 
-        function renderNovels(novelId) {
+        function openNovel(id) {
+            document.getElementById('novel-select-screen').style.display = 'none';
+            document.getElementById('content-screen').style.display = 'block';
+            renderEpisodes(id);
+        }
+
+        function renderEpisodes(id) {
             const list = document.getElementById('items-list');
             list.innerHTML = "";
-            for(let i=1; i<=100; i++) {
-                let pkg = getPkgInfo(i, novelId);
-                let isFree = i <= 10 || unlocked.includes(pkg.id);
+            for(let i=1; i<=20; i++) {
                 const div = document.createElement('div');
-                div.className = `card ${isFree ? '' : 'locked'}`;
-                div.innerHTML = `قسط ${i}<br><small>${isFree ? '🔓 اوپن' : '🔒 لاک'}</small>`;
-                div.onclick = () => isFree ? openFile(i, FOLDERS[novelId]) : showLock(i, pkg, novelId);
+                div.className = 'card';
+                div.innerHTML = `قسط ${i}`;
+                div.onclick = () => alert("یہ قسط جلد دستیاب ہوگی۔");
                 list.appendChild(div);
             }
         }
 
-        function getPkgInfo(n, novelId) {
-            if (n <= 10) return { id: "FREE", price: 0 };
-            if (n <= 50) return { id: `${novelId}_P1_` + Math.ceil((n-10)/5), price: 50 };
-            return { id: `${novelId}_P2_PRO`, price: 100 };
-        }
-
-        function showLock(i, pkg, novelId) {
-            currentPkg = pkg.id;
-            currentNovel = novelId;
-            currentEpisode = i;
-            const novelName = novelId === 'baz_ishq' ? 'باز عشق' : 'وہ جو نظر انداز بو گئے';
-            document.getElementById('pay-info').innerText = `${novelName} - قسط ${i} لاک ہے۔ اسے ان لاک کرنے کے لیے ${pkg.price} روپے اوپر دیے گئے کسی بھی نمبر پر ایزی پیسہ کریں۔`;
-            const msg = encodeURIComponent(`سلام! مجھے ${novelName} کی قسط ${i} خریدنی ہے۔`);
-            document.getElementById('wa-1').href = `https://wa.me/${WA_NUMBERS[0]}?text=${msg}`;
-            document.getElementById('wa-2').href = `https://wa.me/${WA_NUMBERS[1]}?text=${msg}`;
-            document.getElementById('pay-modal').classList.add('active');
-        }
-
-        async function openFile(name, fId) {
-            try {
-                const query1 = `'${fId}' in parents and name='${name}.pdf' and trashed=false`;
-                let res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query1)}&key=${API_KEY}&fields=files(webViewLink)`);
-                let data = await res.json();
-                if(!data.files || data.files.length === 0) {
-                    const query2 = `'${fId}' in parents and name='${name}' and trashed=false`;
-                    res = await fetch(`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(query2)}&key=${API_KEY}&fields=files(webViewLink)`);
-                    data = await res.json();
-                }
-                if(data.files && data.files.length > 0) {
-                    window.open(data.files[0].webViewLink, '_blank');
-                } else {
-                    alert("فائل دستیاب نہیں!");
-                }
-            } catch(e) { 
-                console.error(e);
-                alert("ایرر!"); 
-            }
-        }
-
-        function showCodeInput() { closeModals(); document.getElementById('code-modal').classList.add('active'); }
-        function closeModals() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('active')); }
         function goToPuzzle() { window.location.href = "https://ullahyad1.github.io/"; }
-        
-        function verifyCode() {
-            const input = document.getElementById('user-code').value.toUpperCase();
-            const d = new Date();
-            const correct = (currentPkg + d.getDate() + (d.getMonth() + 1) + "X").toUpperCase();
-            if(input === correct) {
-                unlocked.push(currentPkg);
-                localStorage.setItem('nov_unlocked', JSON.stringify(unlocked));
-                alert("کامیابی! قسط ان لاک ہو گئی۔");
-                location.reload();
-            } else alert("غلط کوڈ!");
-        }
     </script>
 </body>
 </html>
